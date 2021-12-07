@@ -28,8 +28,9 @@ public class gameEnvironment extends javax.swing.JFrame {
         cashLabel.setText("Cash: $" + user.cash);
         xpLabel.setText("Level: " + user.lvl);
         xpCounterLabel.setText("lvl up: need " + user.xpNeeded() + "XP");
+        jScrollPane1.setBorder(null);
         
-        if (user.lvl < 5) {hLabel1.setVisible(false); hLabel2.setVisible(false); hLabel3.setVisible(false);}
+        if (user.lvl < 5) {bmTextArea.setVisible(false); jScrollPane1.setVisible(false);}
     }
 
     /**
@@ -46,9 +47,6 @@ public class gameEnvironment extends javax.swing.JFrame {
         cashLabel = new javax.swing.JLabel();
         xpLabel = new javax.swing.JLabel();
         xpCounterLabel = new javax.swing.JLabel();
-        hLabel1 = new javax.swing.JLabel();
-        hLabel2 = new javax.swing.JLabel();
-        hLabel3 = new javax.swing.JLabel();
         shopButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         sellButton = new javax.swing.JButton();
@@ -57,6 +55,9 @@ public class gameEnvironment extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bmTextArea = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,20 +75,6 @@ public class gameEnvironment extends javax.swing.JFrame {
 
         xpCounterLabel.setForeground(new java.awt.Color(255, 255, 255));
         xpCounterLabel.setText("LVL+: x/y XP");
-
-        hLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        hLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        hLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        hLabel1.setText("Unlocked at lvl 5:");
-
-        hLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        hLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        hLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        hLabel2.setText("Black Market: Type \"Black Market\" in your user input section. It will take you to the black market.");
-
-        hLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        hLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        hLabel3.setText("There are items that will multiply your profits and XP gain at the black market, as well as GUNS!!");
 
         shopButton.setBackground(new java.awt.Color(0, 0, 0));
         shopButton.setForeground(new java.awt.Color(51, 153, 0));
@@ -109,7 +96,7 @@ public class gameEnvironment extends javax.swing.JFrame {
 
         sellButton.setBackground(new java.awt.Color(0, 0, 0));
         sellButton.setForeground(new java.awt.Color(51, 153, 0));
-        sellButton.setText("Buy Materials");
+        sellButton.setText("Sell Moonshine");
         sellButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sellButtonActionPerformed(evt);
@@ -151,6 +138,20 @@ public class gameEnvironment extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 153, 51));
         jLabel3.setText("Text input:");
 
+        bmTextArea.setEditable(false);
+        bmTextArea.setBackground(new java.awt.Color(0, 0, 0));
+        bmTextArea.setColumns(20);
+        bmTextArea.setForeground(new java.awt.Color(255, 255, 255));
+        bmTextArea.setRows(5);
+        bmTextArea.setText("Unlocked at lvl 5:\nBlack Market: Type \"Black Market\" in your user input section. It will take you to the black market\nThere are items that will multiply your profits and XP gain at the black market, as well as GUNS!!\nNOTE: as of right now the black market is not implemented. The command will do nothing.");
+        bmTextArea.setOpaque(false);
+        jScrollPane1.setViewportView(bmTextArea);
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 51, 153));
+        jLabel4.setText("Locked Features - Progress to Unlock");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -190,18 +191,18 @@ public class gameEnvironment extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(546, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(hLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(hLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(hLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(181, 181, 181))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,13 +216,11 @@ public class gameEnvironment extends javax.swing.JFrame {
                             .addComponent(xpLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(xpCounterLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hLabel1)
-                    .addComponent(hLabel2))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hLabel3)
-                .addGap(216, 216, 216)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -274,6 +273,9 @@ public class gameEnvironment extends javax.swing.JFrame {
 
     private void sellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButtonActionPerformed
         // TODO add your handling code here:
+        dispose();
+        DeliveryScreen s = new DeliveryScreen();
+        s.setVisible(true);
     }//GEN-LAST:event_sellButtonActionPerformed
 
     private void processButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processButtonActionPerformed
@@ -302,7 +304,7 @@ public class gameEnvironment extends javax.swing.JFrame {
             case "go home" -> {
                 homeScreen();
             }
-            case "'dev'mode'" -> {
+            case "'devmode" -> {
                 user.setInv(999);
                 refresh();
             }
@@ -365,16 +367,16 @@ public class gameEnvironment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea bmTextArea;
     private javax.swing.JLabel cashLabel;
-    private javax.swing.JLabel hLabel1;
-    private javax.swing.JLabel hLabel2;
-    private javax.swing.JLabel hLabel3;
     private javax.swing.JButton invButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton processButton;
     private javax.swing.JButton sellButton;

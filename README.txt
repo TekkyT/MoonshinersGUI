@@ -19,14 +19,15 @@ https://www.java.com/en/download/
 -------------------------------------------------------------
 GAME CONTAINS AS OF NOW:
 
-(almost) fully functional game environment.
-only thing missing there is the option to sell your moonshine.
+fully functional game environment.
 
 Setup in Java Swing for ease of access and ease of modification.
 Player class for ease of modification.
 
 -------------------------------------------------------------
 TO BE ADDED
+
+black market needs added
 
 I will be adding a LOT of adventure elements to this game very shortly. 
 Remember this is just the framework for the game.

@@ -12,10 +12,11 @@ package newpackage;
 public class Player {
     static double cash;
     static int lvl;
-    int xp, xpReq;
+    double xp, xpReq;
     static int water, yeast, nutrients, barrels, stills, sugar;
     static int batches;
     static int batchesCollected;
+    static double mult;
     
     public Player() {
         cash = 4000;
@@ -25,6 +26,7 @@ public class Player {
         
         water=0;yeast=0;nutrients=0;barrels=0;stills=0;sugar=0;batches=0;
         batchesCollected = 0;
+        mult = 1;
     }
     
     public String getInv() {
@@ -44,7 +46,7 @@ public class Player {
         
         // xp system slowly being implemented
         xp+=10*n;
-        if (xp == xpReq) {
+        if (xp >= xpReq) {
             xp = 0; xpReq*=2; 
             
             lvl++;
@@ -58,9 +60,19 @@ public class Player {
         barrels = x;
         stills = x;
         sugar = x;
+        batches = x;
+        mult = x;
     }
     
-    public int xpNeeded() {
+    public void doXP(double n) {
+        xp += n*mult;
+        while (xp>=xpReq) {
+            xpReq*=2;
+            lvl++;
+        }
+    }
+    
+    public double xpNeeded() {
         return xpReq-xp;
     }
 }

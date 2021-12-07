@@ -12,7 +12,7 @@ package newpackage;
 public class Player {
     static double cash;
     static int lvl;
-    double xp, xpReq;
+    double xp, xpReq, xpGained;
     static int water, yeast, nutrients, barrels, stills, sugar;
     static int batches;
     static int batchesCollected;
@@ -45,12 +45,7 @@ public class Player {
         batchesCollected+=n;
         
         // xp system slowly being implemented
-        xp+=10*n;
-        if (xp >= xpReq) {
-            xp = 0; xpReq*=2; 
-            
-            lvl++;
-        }
+        for (int i=0;i<n;i++) doXP(10);
     }
     
     public void setInv(int x) {
@@ -65,7 +60,8 @@ public class Player {
     }
     
     public void doXP(double n) {
-        xp += n*mult;
+        xp += n*(1 + ((mult-1)*mult*.25));
+        xpGained = n*(1 + ((mult-1)*mult*.25));
         while (xp>=xpReq) {
             xpReq*=2;
             lvl++;
